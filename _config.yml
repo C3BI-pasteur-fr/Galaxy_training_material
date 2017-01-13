@@ -17,7 +17,7 @@ title: "Galaxy Training Material"
 email: your-email@domain.com
 description: > #
 
-url: "http://c3bi.github.io/training-material/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://c3bi-github-fr.github.io/Galaxy_training_material/" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Where things are
 source:       .
