@@ -338,6 +338,7 @@ you will need your role *id*, look for the methods of the Class *gi.roles*
 ]
 
 ```python
+role_id = gi.roles.get_roles()[0]['id']
 new_lib = gi.libraries.create_library('my_library')
 gi.libraries.set_library_permissions(new_lib['id'], access_in=['role_id'],
       modify_in=['role_id'], add_in=['role_id'], manage_in=['role_id'])
@@ -380,6 +381,7 @@ you will need your role *id*, look for the methods of the Class *gi.roles*
 ]
 
 ```python
+role_id = gi.roles.get_roles()[0]['id']
 new_lib = gi.libraries.create_library('my_library')
 gi.libraries.set_library_permissions(new_lib['id'], access_in=['role_id'],
       modify_in=['role_id'], add_in=['role_id'], manage_in=['role_id'])
