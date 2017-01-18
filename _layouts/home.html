@@ -21,7 +21,7 @@ layout: base
                   <td>{{ topic[1].title }}</td>
                   <td>
                     {% if introduction != 0 %}
-                    <a href="{{ site.url }}/{{ topic[1].name }}/slides"> :mortar_board: </a>
+                    <a href="{{ site.url }}/{{ topic[1].name }}/slides/{{ topic[1].slides }}"> :mortar_board: </a>
                     {% endif %}
                   </td>
             </tr>
@@ -44,9 +44,7 @@ layout: base
 
                   <td>{{ topic[1].title }}</td>
                   <td>
-                    {% if introduction != 0 %}
-                    <a href="{{ site.url }}/{{ topic[1].name }}/slides"> :mortar_board: </a>
-                    {% endif %}
+                    <a href="{{ site.url }}/{{ topic[1].name }}/slides/{{ topic[1].slides }}"> :mortar_board: </a>
                   </td>
             </tr>
             {% endif %}
