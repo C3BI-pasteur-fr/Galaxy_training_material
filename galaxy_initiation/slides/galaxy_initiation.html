@@ -39,3 +39,141 @@ name: plan
 ---
 layout: false
 ## Galaxy : a workflow managment software
+* Galaxy is a web interface providing scientists, tools usually launched through command lines 
+* Principles : 
+    * A galaxy tool is a program linked to a xml file
+    * The XML file gathers options, type, input, output, format and the command line to build.
+    * Galaxy interprets the xml to generate the web interface 
+* Advantages :
+    * Deals with Big Data (NGS)
+    * Creates workflows (tool chains) 
+    * Saving and sharing workflows and data
+* Since March 2013, Galaxy is available and supported at the Institut Pasteur: galaxy.web.pasteur.fr.
+    * It is linked to the Institut Pasteur storage bay, enabling the big data upload 
+    * Support for tools developement and installation
+
+---
+## Galaxy presentation: Homepage
+
+<img src="../images/galaxy_presentation.png">
+
+---
+## Tool interface in Galaxy
+
+<img src="../images/tool_interface.png">
+
+---
+## Data libraries management panel
+
+<img src="../images/data_libraries.png">
+
+---
+## Workflow construction panel
+
+<img src="../images/workflow.png">
+
+---
+## Exercise
+
+* Launch the Virtual Machine (VirtualBox)
+* Connexion to Galaxy
+    - https://galaxy.pasteur.fr (linux/mac/windows)
+    - if you do not have an account, register (menu User/Register)
+    - email address: use your pasteur user (you will receive an email to activate your account)
+    - password: as you want
+    - public name: as you want
+* Exploration of the 3 panels: 
+    - Tool list
+    - History (a new one is created at each connexion)
+    - Central panel 
+* Exploration of the 3 tabs:
+    - "Analyze Data"
+    -  "Workflow"
+    - "Shared Data"
+
+
+---
+layout: true
+## Part 2
+#### Data analysis
+---
+layout: false
+## Upload a data
+<img src="../images/upload.png">
+* Use the tool \u2018Upload File\u2019
+    * Data in Galaxy have a type/format
+    * Be careful of the Format and selected Genome (for genomic data)
+* Important information
+    * This tool is usable only for dataset below 2 Go
+
+---
+## Exercise
+
+* Go to Galaxy
+
+    - Search the category "Get Data" in the tool list
+    - Select "upload file"  
+      import the two fastq files
+    - New file in the current history
+
+---
+## Launch a job
+<img src="../images/launch_job.png">
+---
+## Exercise - Choice in the tool list
+* Category *NGS: QC and manipulation*, tool: *fqduplicate*
+    - No input possible because it needs fastqsanger format and not fastq
+
+* Solution: Choose the *fqconvert* tool in the category *Convert Formats*
+    - Run *fqconvert* on one of the fastq input files
+
+* Go back to *fqduplicate*
+    - Run with *single read* parameter
+---
+## Exercise - Choice in the tool list
+* *fqextract*: parameters
+    - Type of input data : single read
+    - Original *fastq* dataset from your history: *fastqsanger* output from *fqconvert*
+    - *Fastq* format : *illumina1.8/Sanger*
+    - Ignore pair information for the extraction (-p): True
+    - Dataset from your history containing the list of read names to extract or exclude (-l): *fqduplicate* from *fastqsanger*
+    - Extract or exclude reads in the list: Extract listed reads
+    - run
+* Category NGS: Mapping: Parallel Map with BWA for Illumina
+    * Will you select a reference genome from your history or use a built-in index?: Use one from the history
+    * You need the reference genome,  warning: It can be a big file
+---
+## Upload a data file bigger than 2Go
+
+Command line solution
+* Copy your data in your Galaxy transfer directory (use the SFTP protocol)
+    * To establish the connection with the sftp server from your Linux or Mac computer:  
+    ```bash
+    sftp -P 2222 yourlogin@galaxy.pasteur.fr
+    ```
+    * To establish the connection with the sftp server from central-bio, tars or bic:  
+    ```bash
+    ssh yourlogin@central-bio.pasteur.fr 
+    or
+    ssh yourlogin@bic.pasteur.fr 
+    or 
+    ssh yourlogin@tars.pasteur.fr  
+    sftp -P 2222 yourlogin@galaxy.pasteur.fr
+    ```
+.center[**REMARK: Use the galaxy password for the sftp connection**]
+---
+## Upload a data file bigger than 2Go
+
+Command line solution
+* To upload a file on the sftp server:
+```bash
+sftp>put PathToYourFile
+```
+* To upload a directory on the sftp server:
+    * on the sftp server create a directory with the same name that the directory which you want to upload:
+    ```bash
+    sftp>mkdir mydirectory
+    sftp>put -r mydirectory
+    ```
+* Then use the web interface to transfer the data in your data library and then to one of your history 
+---
