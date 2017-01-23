@@ -6,8 +6,8 @@ tutorial_name: "galaxy_initiation"
 
 .left.top[<img src="../images/LogoIP-CNRS-C3BI-NBV4small-e1460524231316.png" width="200">]
 
-.center[#Galaxy training I
-####From command line to web interface  
+.center[#Galaxy training @ Institut Pasteur
+##**From command line to web interface**
 ####Olivia Doppelt-Azeroual, Fabien Mareuil]
 
 ---
@@ -17,40 +17,44 @@ name: plan
 
 * Quick introduction to Galaxy; a workflow managment software
 
-* Part 1 - The web interface:
+* Part 1 - **The web interface**:
     * Home page, tools, history, tool interface.
     * Data Library pannel
     * Workflow building pannel
 
-* Part 2 - Data analysis:
-    * Data import:
-        * data import using 'upload file'
-	* data import using 'shared data'
+* Part 2 - **Data analysis**:
+    * Data upload:
+        * data upload using 'upload file'
+	    * data upload using 'shared data'
     * Job launching
 
-* Part 3 - Workflow construction:
+* Part 3 - **Workflow construction**:
     * NGS workflow
 
 ---
 
 ## PART 1
-#### Quick introduction to the workflow management software Galaxy
+## Quick introduction to Galaxy
 
 ---
 layout: false
 ## Galaxy : a workflow managment software
 * Galaxy is a web interface providing scientists, tools usually launched through command lines 
-* Principles : 
+* **Basics** :
     * A galaxy tool is a program linked to a xml file
-    * The XML file gathers options, type, input, output, format and the command line to build.
+    * The XML file gathers options, types, inputs, outputs, formats and the tool command line.
     * Galaxy interprets the xml to generate the web interface 
-* Advantages :
-    * Deals with Big Data (NGS)
+* **Advantages++** :
+    * Deals with Big Data
     * Creates workflows (tool chains) 
-    * Saving and sharing workflows and data
-* Since March 2013, Galaxy is available and supported at the Institut Pasteur: galaxy.web.pasteur.fr.
-    * It is linked to the Institut Pasteur storage bay, enabling the big data upload 
-    * Support for tools developement and installation
+    * Enables saving and sharing workflows and data
+* Galaxy@Pasteur is available at **galaxy.pasteur.fr**:
+    * It is available for internal users since March 2013 and external users since October 2016
+// DEUX COLONNES * It provides standard tools for bioinformatics analyses  * as well as workflows for phylogenic analyses
+* It is linked to the Institut Pasteur storage bay,
+enabling big data upload
+* We provide support for tools developement and
+tools installation in Galaxy
 
 ---
 ## Galaxy presentation: Homepage
@@ -73,54 +77,63 @@ layout: false
 <img src="../images/workflow.png">
 
 ---
-## Exercise
+## Hands on
 
-* Launch the Virtual Machine (VirtualBox)
-* Connexion to Galaxy
+* Connexion to Galaxy:
     - https://galaxy.pasteur.fr (linux/mac/windows)
     - if you do not have an account, register (menu User/Register)
-    - email address: use your pasteur user (you will receive an email to activate your account)
+    - email address (you will receive an email to activate your account):
+// DEUX COLONNES  use an existing email adress
+use your pasteur short address
     - password: as you want
     - public name: as you want
+
 * Exploration of the 3 panels: 
-    - Tool list
+    - Tools
     - History (a new one is created at each connexion)
-    - Central panel 
+    - Central panel
+
 * Exploration of the 3 tabs:
-    - "Analyze Data"
-    -  "Workflow"
-    - "Shared Data"
+    - Analyze Data
+    - Workflow
+    - Shared Data
 
 
 ---
-layout: true
+
+
 ## Part 2
-#### Data analysis
+## Data analysis
+
+
 ---
 layout: false
 ## Upload a data
 <img src="../images/upload.png">
-* Use the tool \u2018Upload File\u2019
+
+* Use the tool **Upload File**
     * Data in Galaxy have a type/format
-    * Be careful of the Format and selected Genome (for genomic data)
-* Important information
-    * This tool is usable only for dataset below 2 Go
+    * Pay a good attention to the file format and the selected Genome (for genomic data)
+
+* Remark
+    * This tool is adapted for dataset below 2 Go
 
 ---
-## Exercise
+## Hands on
 
 * Go to Galaxy
 
     - Search the category "Get Data" in the tool list
     - Select "upload file"  
-      import the two fastq files
-    - New file in the current history
+      --> import the two fastq files
+
+    - The two fastq file should be in the current history
 
 ---
 ## Launch a job
 <img src="../images/launch_job.png">
 ---
-## Exercise - Choice in the tool list
+## Hands on - Select a tool in the tool list
 * Category *NGS: QC and manipulation*, tool: *fqduplicate*
     - No input possible because it needs fastqsanger format and not fastq
 
@@ -130,7 +143,7 @@ layout: false
 * Go back to *fqduplicate*
     - Run with *single read* parameter
 ---
-## Exercise - Choice in the tool list
+## Hands on - Select a tool in the tool list
 * *fqextract*: parameters
     - Type of input data : single read
     - Original *fastq* dataset from your history: *fastqsanger* output from *fqconvert*
