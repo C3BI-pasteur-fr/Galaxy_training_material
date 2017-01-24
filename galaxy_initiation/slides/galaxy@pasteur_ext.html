@@ -1,0 +1,109 @@
+---
+layout: base_slides
+topic_name: "galaxy@pasteur_ext"
+tutorial_name: "galaxy@pasteur_ext"
+---
+
+.left.top[<img src="../images/LogoIP-CNRS-C3BI-NBV4small-e1460524231316.png" width="200">]
+
+.center[#Galaxy training @ Institut Pasteur
+##**From command line to web interface**
+####Olivia Doppelt-Azeroual, Fabien Mareuil]
+
+---
+name: plan
+
+## Plan
+
+* Quick introduction to Galaxy; a workflow managment software
+
+* Part 1 - **The web interface**:
+    * Home page, tools, history, tool interface.
+    * Data Library pannel
+    * Workflow building pannel
+
+* Part 2 - **Data analysis**:
+    * Data upload:
+        * data upload using 'upload file'
+	    * data upload using 'shared data'
+    * Job launching
+
+* Part 3 - **Workflow construction**:
+    * NGS workflow
+
+---
+
+## PART 1
+## Quick introduction to Galaxy
+
+---
+layout: false
+## Galaxy : a workflow managment software
+* Galaxy is a web interface providing scientists, tools usually launched through command lines 
+* **Basics** :
+    * A galaxy tool is a program linked to a xml file
+    * The XML file gathers options, types, inputs, outputs, formats and the tool command line.
+    * Galaxy interprets the xml to generate the web interface 
+* **Advantages++** :
+    * Deals with Big Data
+    * Creates workflows (tool chains) 
+    * Enables saving and sharing workflows and data
+* Galaxy@Pasteur is available at **galaxy.pasteur.fr**:
+    * It is available for internal users since March 2013 and external users since October 2016
+    * It provides standard tools for bioinformatics analyses
+    * as well as workflows for phylogenic analyses
+    * It is linked to the Institut Pasteur storage bay:
+        * Logged/registered users have a 10Gb quota
+        * Anonymous users have a 2Gb quota
+
+---
+## Galaxy presentation: Homepage
+
+<img src="../images/galaxy_presentation.png">
+
+---
+## Tool interface in Galaxy
+
+<img src="../images/tool_interface.png">
+
+---
+## Data libraries management panel
+
+<img src="../images/data_libraries.png">
+
+---
+## Workflow construction panel
+
+<img src="../images/workflow.png">
+
+---
+## Connexion to Galaxy
+
+    - https://galaxy.pasteur.fr (linux/mac/windows)
+    - if you do not have an account, register (menu User/Register)
+    - email address (you will receive an email to activate your account)
+    - password: as you want
+    - public name: as you want as long as Galaxy accepts
+
+---
+
+
+## Part 2
+## Data analysis
+
+
+---
+layout: false
+## Upload a data
+<img src="../images/upload.png">
+
+* Use the tool **Upload File**
+    * Data in Galaxy have a type/format
+    * Pay a good attention to the file format and the selected Genome (for genomic data)
+
+* Remark
+    * This tool is adapted for dataset below 2 Go
+
+
+
+

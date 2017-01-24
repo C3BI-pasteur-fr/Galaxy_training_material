@@ -1,7 +1,7 @@
 ---
 layout: base_slides
-topic_name: "galaxy_initiation"
-tutorial_name: "galaxy_initiation"
+topic_name: "galaxy_initiation_handsOn"
+tutorial_name: "galaxy_initiation_handsOn"
 ---
 
 .left.top[<img src="../images/LogoIP-CNRS-C3BI-NBV4small-e1460524231316.png" width="200">]
@@ -74,14 +74,14 @@ layout: false
 <img src="../images/workflow.png">
 
 ---
+name: connexion
 ## Hands on
 
 * Connexion to Galaxy:
     - https://galaxy.pasteur.fr (linux/mac/windows)
     - if you do not have an account, register (menu User/Register)
     - email address (you will receive an email to activate your account):
-// DEUX COLONNES  use an existing email adress
-use your pasteur short address
+        --> use your pasteur short address
     - password: as you want
     - public name: as you want
 
@@ -94,7 +94,6 @@ use your pasteur short address
     - Analyze Data
     - Workflow
     - Shared Data
-
 
 ---
 
@@ -116,6 +115,7 @@ layout: false
     * This tool is adapted for dataset below 2 Go
 
 ---
+name: upload_small
 ## Hands on
 
 * Go to Galaxy
@@ -127,6 +127,7 @@ layout: false
     - The two fastq file should be in the current history
 
 ---
+name: launch
 ## Launch a job
 <img src="../images/launch_job.png">
 ---
@@ -140,6 +141,7 @@ layout: false
 * Go back to *fqduplicate*
     - Run with *single read* parameter
 ---
+name: tools
 ## Hands on - Select a tool in the tool list
 * *fqextract*: parameters
     - Type of input data : single read
@@ -153,6 +155,7 @@ layout: false
     * Will you select a reference genome from your history or use a built-in index?: Use one from the history
     * You need the reference genome,  warning: It can be a big file
 ---
+name:big_upload
 ## Upload a data file bigger than 2Go
 
 Command line solution
