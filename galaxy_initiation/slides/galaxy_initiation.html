@@ -235,6 +235,42 @@ sftp>put PathToYourFile
 <img src="../images/data_annotation.png" width="100%" height="100%" align="center" valign="center">
 
 ---
+## Hands On: Upload a big data
+
+* If data are on a pasteur server:
+    * In a shell terminal launch the following commands: 
+```bash
+ssh mylogin@central-bio.pasteur.fr or tars.pasteur.fr
+sftp commands (see slide 19-20)
+```
+* If data are on your computer, with filezilla:
+    * Launch filezilla
+    * Enter Host, Username, ... (see slide 21)
+    * Drag and drop your data, NC_002929_Bpertussis.fasta 
+* If data are on your computer, with command line:
+    * In a new shell terminal, launch the following commands:
+```bash
+cd Pathofmydata
+sftp commands (see slide 19-20)
+```
+
+---
+## Hands On: Upload a big data
+When data are in the sftp server:
+
+* Go to Galaxy interface
+
+    * Tab *shared data/Data libraries*
+    * Click on mylogin@pasteur.fr
+    * Click on add datasets
+    * Upload option: Upload directory of files
+    * Copy files into Galaxy 
+    * Upload to library
+    * Check that your data is selected and import to current history
+    * Go back to \u201canalyse data\u201d tab, check your history
+    * Launch the BWA tool with the imported genome
+
+---
 class: center, middle, inverse
 ## PART 3
 ## Workflow Construction
@@ -281,6 +317,30 @@ layout: false
 sftp -P 2222 yourlogin@galaxy.pasteur.fr
 sftp> get yourData
 ```
+
+* You can delete data with the cross, and purge them with the wheel menu option *purge deleted datasets*
+
+---
+## Hands On: Create a workflow and run it
+* Create a workflow
+
+    * Create workflow, give it a name
+    * Search, link and set parameters for each tool
+    * Click on the wheel, save, then run the workflow
+* To run the workflow several times
+
+    * Add the Input dataset box of the category Workflow control/ Inputs
+    * Save then run
+    * Click on the little file logo near the Input Dataset of the Step 1
+    * Add the 2 input files and run.
+* To finish, delete data
+
+    * Click on the cross of each file
+    * Click on the history wheel and on include deleted datasets
+        * Data are not really deleted
+    * Click on the wheel and select purge deleted datasets or on delete permanently to delete the complete history or delete each data individually
+
+
 
 ---
 class: center, middle, inverse
