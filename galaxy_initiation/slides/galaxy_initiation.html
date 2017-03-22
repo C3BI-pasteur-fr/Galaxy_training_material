@@ -16,29 +16,25 @@ name: plan
 ## Plan
 
 * Quick introduction to Galaxy; a workflow managment software
-
 * Part 1 - **The web interface**:
     * Homepage, tools, history, tool interface.
     * Data Library pannel
     * Workflow building pannel
-
 * Part 2 - **Managing data**:
     * Data import:
         * data import using 'upload file'
 	* data import using 'shared data'
     * Job launching
     * Data annotation
-
 * Part 3 - **Workflow construction**:
     * NGS workflow
     * Workflow annotation
-
 * Part 4 - **Galaxy and Reproducibility**
     * Pages
     * Sharing galaxy object
 
 ---
-
+class: center, middle, inverse
 ## PART 1
 ## Quick introduction to Galaxy
 
@@ -62,89 +58,82 @@ layout: false
 ---
 ## Galaxy presentation: Homepage, central panel
 
-<img src="../images/galaxy_presentation.png">
+<img src="../images/galaxy_presentation.png" width="100%" height="100%" align="center" valign="center">
 
 ---
 ## Galaxy presentation: Homepage, left panel
 
-<img src="../images/menu_panel.png">
+<img src="../images/menu_panel.png" width="100%" height="100%" align="center" valign="center">
 
 ---
 ## Galaxy presentation: Homepage, right panel
 
-<img src="../images/history_panel.png">
-
----
-## Tool interface in Galaxy
-
-<img src="../images/tool_interface.png">
+<img src="../images/history_panel.png" width="100%" height="100%" align="center" valign="center">
 
 ---
 ## Data libraries management panel
 
-<img src="../images/data_libraries.png">
+<img src="../images/data_libraries.png" width="100%" height="100%" align="center" valign="center">
 
 ---
 ## Workflow construction panel
 
-<img src="../images/workflow.png">
+<img src="../images/workflow.png" width="100%" height="100%" align="center" valign="center">
 
 ---
-## Hands on
+## Hands on: It's your turn
 
 * Connexion to Galaxy:
-    - https://galaxy.pasteur.fr (linux/mac/windows)
-    - if you do not have an account, register (menu User/Register)
-    - email address (you will receive an email to activate your account):
-// DEUX COLONNES  use an existing email adress
-use your pasteur short address
-    - password: as you want
-    - public name: as you want
-
-* Exploration of the 3 panels: 
-    - Tools
-    - History (a new one is created at each connexion)
-    - Central panel
-
-* Exploration of the 3 tabs:
-    - Analyze Data
-    - Workflow
-    - Shared Data
+    * https://galaxy.pasteur.fr (linux/mac/windows)
+    * if you do not have an account, register (menu User/Register)
+    * email address (you will receive an email to activate your account):
+        * use your pasteur address
+    * password: as you want
+    * public name: as you want
+* Exploration of the Analyse Data tab: 
+    * Tools
+        * search your prefered tools if it is not in the menu panel, whine
+    * History
+        * use the wheel icon in the history panel to create a new history and rename it
+    * Central panel
+        * load a tool and look the central panel
+* Exploration of 2 other tabs:
+    * Workflow
+        * we will come back later on it
+    * Shared Data
+        * find your library, it should be easy
 
 
 ---
-
-
-## Part 2
-## Data analysis
-
+class: center, middle, inverse
+## PART 2
+## Managing your data with Galaxy
 
 ---
 layout: false
-## Upload a data
-<img src="../images/upload.png">
-
-* Use the tool **Upload File**
-    * Data in Galaxy have a type/format
-    * Pay a good attention to the file format and the selected Genome (for genomic data)
-
-* Remark
-    * This tool is adapted for dataset below 2 Go
+## Upload a data if size is **<** 2 Gb
+<img src="../images/upload.png" width="100%" height="100%" align="center" valign="center">
+* Each data has a **FORMAT** and the **FORMAT** is capital for Galaxy
+* **It defines which program can be executed using the data**
 
 ---
-## Hands on
+layout: false
+## Upload a data if size is **<** 2 Gb
+<img src="../images/upload_2.png" width="100%" height="100%" align="center" valign="center">
+* If the user knows the data format, he better set it at the upload.
+
+---
+## Hands on: It's your turn
 
 * Go to Galaxy
-
-    - Search the category "Get Data" in the tool list
-    - Select "upload file"  
-      --> import the two fastq files
-
-    - The two fastq file should be in the current history
-
+    * Search the category "Get Data" in the tool list
+    * Select "upload file"  
+        --> import the two fastq files
+    * The two fastq file should be in the current history
+    
 ---
 ## Launch a job
-<img src="../images/launch_job.png">
+<img src="../images/launch_job.png" width="100%" height="100%" align="center" valign="center">
 ---
 ## Hands on - Select a tool in the tool list
 * Category *NGS: QC and manipulation*, tool: *fqduplicate*
@@ -169,72 +158,230 @@ layout: false
     * Will you select a reference genome from your history or use a built-in index?: Use one from the history
     * You need the reference genome,  warning: It can be a big file
 ---
-## Upload a data file bigger than 2Go
+## Upload a data if size is **>** 2Go
 
-Command line solution
-* Copy your data in your Galaxy transfer directory (use the SFTP protocol)
-    * To establish the connection with the sftp server from your Linux or Mac computer:  
-    ```bash
-    sftp -P 2222 yourlogin@galaxy.pasteur.fr
-    ```
-    * To establish the connection with the sftp server from central-bio, tars or bic:  
-    ```bash
-    ssh yourlogin@central-bio.pasteur.fr 
-    or
-    ssh yourlogin@bic.pasteur.fr 
-    or 
-    ssh yourlogin@tars.pasteur.fr  
-    sftp -P 2222 yourlogin@galaxy.pasteur.fr
-    ```
+*Command line (Terminal) solution*
+* To establish the connection with the sftp server from your Linux or Mac computer:  
+```bash
+sftp -P 2222 yourlogin@galaxy.pasteur.fr
+```
+* Remark if data are on tars, first connect to it:  
+```bash
+ssh yourlogin@tars.pasteur.fr
+```
 .center[**REMARK: Use the galaxy password for the sftp connection**]
 ---
-## Upload a data file bigger than 2Go
+## Upload a data if size is **>** 2Go
 
-**Command line solution**
+*Command line (Terminal) solution*
 * To upload a file on the sftp server:
 ```bash
 sftp>put PathToYourFile
 ```
 * To upload a directory on the sftp server:
-    * on the sftp server create a directory with the same name that the directory which you want to upload:
+    * On the sftp server create a directory with the same name that the directory you wish to upload:
     ```bash
     sftp>mkdir mydirectory
     sftp>put -r mydirectory
     ```
 
 ---
-## Upload a data file bigger than 2Go
+## Upload a data if size is **>** 2Go
 
-**Filezilla solution**
-* You can use filezilla to transfert data from your computer in your Galaxy transfer directory 
-    * Launch filezilla
-    * open the site manage: ctrl+s 
-    * click on new site
-        * host: galaxy.pasteur.fr
-        * port: 2222
-        * Protocol: sftp - ssh File Transfer Protocol
-        * Logon Type: Ask for password
-        * User: yourlogin
-    * drag'n drop your data from the left windows to the right windows
-
-.center[**REMARK: don't forget to use your galaxy password**]
----
-## Upload a data file bigger than 2Go
-
-* Then use the galaxy web interface to transfer the data in your data library and then to one of your history 
-    * *Shared Data* interface
-<img src="../images/shared_data.png">
-    * Click on your library then on *Add datasets*
-        * It's possible to create folder to organize your data
+*Filezilla solution*: You can use filezilla to transfert data from your computer in your Galaxy transfer directory 
+* Launch filezilla
+* Open the site manage: ctrl+s 
+* Click on new site
+   * host: galaxy.pasteur.fr
+   * port: 2222
+   * Protocol: sftp - ssh File Transfer Protocol
+   * Logon Type: Ask for password **galaxy password**
+   * User: yourlogin
+* Drag'n drop your data from the left windows to the right windows
+<img src="../images/filezilla.png" width="100%" height="100%" align="center" valign="center">
 
 ---
-## Upload a data file bigger than 2Go
+## Upload a data if size is **>** 2Go
 
-* Select the option *upload directory of files*
-    * You can select the genome species
-
-<img src="../images/upload_data.png">
+* Then use the galaxy web interface to transfer the data in your Galaxy library 
+* Click on your library
+<img src="../images/shared_data_1.png" width="100%" height="100%" align="center" valign="center">
+* It's possible to create folder to organize your data
+<img src="../images/shared_data_2.png" width="100%" height="100%" align="center" valign="center">
+* To upload file you transfered in your link directory (from User Directory):
+<img src="../images/shared_data_3.png" width="100%" height="100%" align="center" valign="center">
 
 ---
+## Upload a data if size is **>** 2Go
 
+<img src="../images/shared_data_4.png" width="100%" height="100%" align="center" valign="center">
+* Then select your data and click on the icon *to History*
 
+<img src="../images/history_upload.png" width="100%" height="100%" align="center" valign="center">
+<img src="../images/history_upload_2.png" width="100%" height="100%" align="center" valign="center">
+---
+## Manage the datatype
+
+* The format can also be fixed but if you forget or put a wrong format, it is possible to change it within Galaxy:
+
+<img src="../images/datatype_1.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Data Annotation / Tag
+
+* Add tag or annotation to datasets or to histories
+* Possibility to search the tag within several histories
+
+<img src="../images/data_annotation.png" width="100%" height="100%" align="center" valign="center">
+
+---
+class: center, middle, inverse
+## PART 3
+## Workflow Construction
+
+---
+layout: false
+## Workflow construction
+
+* Create an empty workflow
+
+<img src="../images/workflow_construction.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Workflow construction
+
+<img src="../images/workflow_construction_2.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Workflow construction
+
+<img src="../images/workflow_construction_3.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Workflow annotation
+
+* Add tag or annotation for a whole workflow 
+* But also for each step of the Workflow (description, or keyword to easily retrieve the concerned datasets
+
+<img src="../images/workflow_annotation.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Run your workflow
+
+<img src="../images/workflow_run.png" width="100%" height="100%" align="center" valign="center">
+---
+## Export a Data **>** 2Go
+
+<img src="../images/export_data.png" width="100%" height="100%" align="center" valign="center">
+
+* Data will be export on the sftp server.
+* To copy it on your computer you can use filezilla or the command line (Terminal): 
+ 
+```bash
+sftp -P 2222 yourlogin@galaxy.pasteur.fr
+sftp> get yourData
+```
+
+---
+class: center, middle, inverse
+## PART 4
+## Galaxy & Reproductibility
+
+---
+layout: false
+
+## Pages
+<img src="../images/pages_1.png" width="100%" height="100%" align="center" valign="center">
+
+* Building Pages
+
+<img src="../images/pages_2.png" width="100%" height="100%" align="center" valign="center">
+<img src="../images/pages_3.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Pages
+
+* Pages example:
+    * https://galaxy.web.pasteur.fr/u/fmareuil/p/formation-galaxy
+<img src="../images/pages_4.png" width="100%" height="100%" align="center" valign="center">
+    * https://galaxy.pasteur.fr/u/dcorreia/p/ngphylogenyfr-oneclick-workflows
+<img src="../images/pages_damien.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Sharing Data with Galaxy
+
+* Click on the wheel menu and select *Share or Publish*
+
+<img src="../images/sharing_data.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Sharing Workflow with Galaxy
+
+<img src="../images/sharing_workflow.png" width="100%" height="100%" align="center" valign="center">
+
+---
+class: center, middle, inverse
+## PART 5
+## To go a little further
+
+---
+layout: false
+## Toolshed
+
+* Pasteur users can also access to a pasteur graphical tool repositories: 
+    * https://toolshed.pasteur.fr/
+* In addition to official repositories
+    * http://toolshed.g2.bx.psu.edu/ et http://testtoolshed.g2.bx.psu.edu
+
+<img src="../images/toolshed.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Writing XMLs
+
+* 4 parts:
+
+    * Description, ID and requirements
+    * Command line
+    * Arguments and command line options descriptions
+    * Documentation and functional tests
+
+* https://docs.galaxyproject.org/en/master/dev/schema.html
+
+---
+## Writing XMLs
+* Once the software is installed on the cluster; the XML is to be put in a toolshed repository and at the end, contact us to install it in the Galaxy instance
+
+<img src="../images/xml.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## From Galaxy to the command line:
+   * Galaxy provides an API to allow scripting and administration of all your tasks
+   
+   	* https://docs.galaxyproject.org/en/master/api/quickstart.html
+	
+   * Bioblend is a python library for interacting with Galaxy's API.
+   
+       * https://bioblend.readthedocs.io/en/latest/
+       * https://c3bi-pasteur-fr.github.io/Galaxy_training_material/pasteur_bioblend/slides/bioblend_api#1
+
+---
+##.center[Thank you for your attention]
+
+* Contact :
+    * https://c3bi.pasteur.fr/ask/?ask=Ask+Short+Question  
+    *(this address may change but it will appear on the Galaxy Page)*
+
+* Useful Addresses:
+    Galaxy at Institut Pasteur: 
+    * https://galaxy.pasteur.fr/
+    * https://toolshed.pasteur.fr/ 
+
+* Use Galaxy :
+    * https://galaxy.pasteur.fr/tours
+    * http://wiki.galaxyproject.org/Learn
+    * https://vimeo.com/galaxyproject/videos
+
+* Write Galaxy xmls:
+    * https://docs.galaxyproject.org/en/master/dev/schema.html
+
+---
