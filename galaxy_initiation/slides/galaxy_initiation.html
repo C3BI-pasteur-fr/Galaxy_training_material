@@ -50,6 +50,7 @@ layout: false
     * Deals with Big Data
     * Creates workflows (tool chains) 
     * Enables saving and sharing workflows and data
+
 * Galaxy@Pasteur is available at **galaxy.pasteur.fr**:
     * It is available for internal users since March 2013 and external users since October 2016
     * It is linked to the Institut Pasteur storage bay, enabling big data upload
@@ -101,7 +102,6 @@ layout: false
         * use your pasteur address
     * password: as you want
     * public name: as you want
-
 * Exploration of the Analyse Data tab: 
     * Tools
         * search your prefered tools and look for its different options
@@ -164,8 +164,22 @@ layout: false
 ---
 ## Launch a job
 <img src="../images/launch_job.png" width="100%" height="100%" align="center" valign="center">
+
 ---
-## Hands on - Select a tool in the tool list
+## Hands on - Select a tool in the tool list (1/2)
+* Category *NGS: QC and manipulation*, tool: *fqduplicate*
+    - No input possible because it needs fastqsanger format and not fastq
+
+---
+## Hands on - Select a tool in the tool list (1/2)
+* Category *NGS: QC and manipulation*, tool: *fqduplicate*
+    - No input possible because it needs fastqsanger format and not fastq
+
+* Solution: Choose the *fqconvert* tool in the category *Convert Formats*
+    - Run *fqconvert* on one of the fastq input files
+
+---
+## Hands on - Select a tool in the tool list (1/2)
 * Category *NGS: QC and manipulation*, tool: *fqduplicate*
     - No input possible because it needs fastqsanger format and not fastq
 
@@ -174,8 +188,19 @@ layout: false
 
 * Go back to *fqduplicate*
     - Run with *single read* parameter
+
 ---
-## Hands on - Select a tool in the tool list
+## Hands on - Select a tool in the tool list (2/2)
+* *fqextract*: parameters setting
+    - Type of input data : single read
+    - Original *fastq* dataset from your history: *fastqsanger* output from *fqconvert*
+    - *Fastq* format : *illumina1.8/Sanger*
+    - Ignore pair information for the extraction (-p): True
+    - Dataset from your history containing the list of read names to extract or exclude (-l): *fqduplicate* from *fastqsanger*
+    - Extract or exclude reads in the list: Extract listed reads
+    - --> run
+---
+## Hands on - Select a tool in the tool list (2/2)
 * *fqextract*: parameters setting
     - Type of input data : single read
     - Original *fastq* dataset from your history: *fastqsanger* output from *fqconvert*
