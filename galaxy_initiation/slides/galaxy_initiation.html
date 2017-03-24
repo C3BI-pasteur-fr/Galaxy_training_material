@@ -214,7 +214,7 @@ layout: false
     * Will you select a reference genome from your history or use a built-in index?: Use one from the history
     * You need the reference genome,  warning: It can be a big file
 ---
-## Upload a data if size is **>** 2Go (1/2)
+## Upload a data if size is **>** 2Go (command line) (1/2)
 
 *Command line (Terminal) solution*
 * To establish the connection with the sftp server from your Linux or Mac computer:  
@@ -227,7 +227,7 @@ ssh yourlogin@tars.pasteur.fr
 ```
 .center[**REMARK: Use the galaxy password for the sftp connection**]
 ---
-## Upload a data if size is **>** 2Go  (2/2)
+## Upload a data if size is **>** 2Go  (command line) (2/2)
 
 *Command line (Terminal) solution*
 * To upload a file on the sftp server:
@@ -242,7 +242,20 @@ sftp>put PathToYourFile
     ```
 
 ---
-## Upload a data if size is **>** 2Go
+## Upload a data if size is **>** 2Go (Filezilla)
+
+*Filezilla solution*: You can use filezilla to transfer data from your computer to your Galaxy transfer directory 
+* Launch filezilla
+* Open the site manage: ctrl+s 
+* Click on new site
+   * host: galaxy.pasteur.fr
+   * port: 2222
+   * Protocol: sftp - ssh File Transfer Protocol
+   * Logon Type: Ask for password **galaxy password**
+   * User: yourlogin
+
+---
+## Upload a data if size is **>** 2Go (Filezilla)
 
 *Filezilla solution*: You can use filezilla to transfer data from your computer to your Galaxy transfer directory 
 * Launch filezilla
@@ -257,7 +270,7 @@ sftp>put PathToYourFile
 <img src="../images/filezilla.png" width="100%" height="100%" align="center" valign="center">
 
 ---
-## Upload a data if size is **>** 2Go
+## Upload a data if size is **>** 2Go (in Galaxy) (1/2)
 
 * Then use the galaxy web interface to transfer the data in your Galaxy library 
 * Click on your library
@@ -268,7 +281,7 @@ sftp>put PathToYourFile
 <img src="../images/shared_data_3.png" width="100%" height="100%" align="center" valign="center">
 
 ---
-## Upload a data if size is **>** 2Go
+## Upload a data if size is **>** 2Go (in Galaxy) (2/2)
 
 <img src="../images/shared_data_4.png" width="100%" height="100%" align="center" valign="center">
 * Then select your data and click on the icon *to History*
@@ -293,7 +306,7 @@ sftp>put PathToYourFile
 ---
 ## Hands On: Upload a big data
 
-* If data are on a pasteur server:
+* If data are on Atlas:
     * In a shell terminal launch the following commands: 
 ```bash
 ssh mylogin@central-bio.pasteur.fr or tars.pasteur.fr
@@ -301,7 +314,7 @@ sftp commands (see slide 19-20)
 ```
 * If data are on your computer, with filezilla:
     * Launch filezilla
-    * Enter Host, Username, ... (see slide 21)
+    * Enter Host, Username, ... (see slide 25)
     * Drag and drop your data, NC_002929_Bpertussis.fasta 
 * If data are on your computer, with command line:
     * In a new shell terminal, launch the following commands:
@@ -311,7 +324,7 @@ sftp commands (see slide 19-20)
 ```
 
 ---
-## Hands On: Upload a big data
+## Hands On: Upload a big data and Launch BWA
 When data are in the sftp server:
 
 * Go to Galaxy interface
@@ -353,7 +366,7 @@ layout: false
 ## Workflow annotation
 
 * Add tag or annotation for a whole workflow 
-* But also for each step of the Workflow (description, or keyword to easily retrieve the concerned datasets
+* But also for each step of the workflow (description, or keyword to easily retrieve the concerned datasets
 
 <img src="../images/workflow_annotation.png" width="100%" height="100%" align="center" valign="center">
 
@@ -375,6 +388,28 @@ sftp> get yourData
 ```
 
 * You can delete data with the cross, and purge them with the wheel menu option *purge deleted datasets*
+
+---
+## Hands On: Create a workflow and run it
+* Create a workflow
+
+    * Create workflow, give it a name
+    * Search, link and set parameters for each tool
+    * Click on the wheel, save, then run the workflow
+
+---
+## Hands On: Create a workflow and run it
+* Create a workflow
+
+    * Create workflow, give it a name
+    * Search, link and set parameters for each tool
+    * Click on the wheel, save, then run the workflow
+* To run the workflow several times
+
+    * Add the Input dataset box of the category Workflow control/ Inputs
+    * Save then run
+    * Click on the little file logo near the Input Dataset of the Step 1
+    * Add the 2 input files and run.
 
 ---
 ## Hands On: Create a workflow and run it
