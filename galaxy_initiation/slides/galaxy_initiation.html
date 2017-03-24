@@ -192,7 +192,7 @@ layout: false
 
 ---
 ## Hands on - Select a tool in the tool list (2/2)
-* *fqextract*: parameters setting
+* *fqextract* - parameters setting
     - **Type of input data **: single read
     - **Original *fastq* dataset from your history**: *fastqsanger* output from *fqconvert*
     - ** *Fastq* format **: *illumina1.8/Sanger*
@@ -202,8 +202,8 @@ layout: false
     - RUN *fqextract*
 ---
 ## Hands on - Select a tool in the tool list (2/2)
-* *fqextract*: parameters setting
-     - **Type of input data **: single read
+* *fqextract* - parameters setting
+    - **Type of input data **: single read
     - **Original *fastq* dataset from your history**: *fastqsanger* output from *fqconvert*
     - ** *Fastq* format **: *illumina1.8/Sanger*
     - **Ignore pair information for the extraction (-p)**: True
@@ -214,20 +214,20 @@ layout: false
     * Will you select a reference genome from your history or use a built-in index?: Use one from the history
     * You need the reference genome,  warning: It can be a big file
 ---
-## Upload a data if size is **>** 2Go
+## Upload a data if size is **>** 2Go (1/2)
 
 *Command line (Terminal) solution*
 * To establish the connection with the sftp server from your Linux or Mac computer:  
 ```bash
 sftp -P 2222 yourlogin@galaxy.pasteur.fr
 ```
-* Remark if data are on tars, first connect to it:  
+* Remark if data are on tars, first connect to it (with your pasteurID password):  
 ```bash
 ssh yourlogin@tars.pasteur.fr
 ```
 .center[**REMARK: Use the galaxy password for the sftp connection**]
 ---
-## Upload a data if size is **>** 2Go
+## Upload a data if size is **>** 2Go  (2/2)
 
 *Command line (Terminal) solution*
 * To upload a file on the sftp server:
@@ -244,7 +244,7 @@ sftp>put PathToYourFile
 ---
 ## Upload a data if size is **>** 2Go
 
-*Filezilla solution*: You can use filezilla to transfert data from your computer in your Galaxy transfer directory 
+*Filezilla solution*: You can use filezilla to transfer data from your computer to your Galaxy transfer directory 
 * Launch filezilla
 * Open the site manage: ctrl+s 
 * Click on new site
