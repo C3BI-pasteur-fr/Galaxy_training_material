@@ -169,7 +169,7 @@ layout: false
 ## Hands on - Get familiar with Galaxy tools: (1/2)
 
 The aim here is to **filter** duplicate reads from a fastq file (or 2), first to **detect** them, then **extract** those reads.
-and **run a mapping** on a reference genome that we will provide you. 
+Finally we want you to **run a mapping** on a reference genome that we will provide you. 
 
 Select a tool in the tool list: 
 * Category *NGS: QC and manipulation*, tool: *fqduplicate*
@@ -180,7 +180,7 @@ Select a tool in the tool list:
 ## Hands on - Get familiar with Galaxy tools (1/2)
 
 The aim here is to **filter** duplicate reads from a fastq file (or 2), first to **detect** them, then **extract** those reads.
-and **run a mapping** on a reference genome that we will provide you. 
+Finally we want you to *run a mapping** on a reference genome that we will provide you. 
 
 Select a tool in the tool list: 
 * Category *NGS: QC and manipulation*, tool: *fqduplicate*
@@ -220,7 +220,7 @@ Select a tool in the tool list:
 ---
 ## Hands on - Select a tool in the tool list (2/2)
 
-* To extract the duplicate reads, use: 
+To extract the duplicate reads, use: 
     * *fqextract* - parameters setting
      - **Type of input data **: single read
      - **Original *fastq* dataset from your history**: *fastqsanger* output from *fqconvert*
@@ -230,6 +230,7 @@ Select a tool in the tool list:
      - **Extract or exclude reads in the list**: Extract listed reads
      - RUN *fqextract*
 
+To map the reads, use: 
 * Category NGS: Mapping: Parallel Map with BWA for Illumina
     * Will you select a reference genome from your history or use a built-in index?: Use one from the history
     * You need the reference genome,  warning: It can be a big file
