@@ -166,7 +166,7 @@ layout: false
 <img src="../images/launch_job.png" width="100%" height="100%" align="center" valign="center">
 
 ---
-## Hands on - Get familiar with Galaxy tools: (1/2)
+## Hands on - Get familiar with Galaxy tools (1/2)
 
 The aim here is to **filter** duplicate reads from a fastq file (or 2), first to **detect** them, then **extract** those reads.
 Finally we want you to **run a mapping** on a reference genome that we will provide you. 
@@ -180,7 +180,7 @@ Select a tool in the tool list:
 ## Hands on - Get familiar with Galaxy tools (1/2)
 
 The aim here is to **filter** duplicate reads from a fastq file (or 2), first to **detect** them, then **extract** those reads.
-Finally we want you to *run a mapping** on a reference genome that we will provide you. 
+Finally we want you to **run a mapping** on a reference genome that we will provide you. 
 
 Select a tool in the tool list: 
 * Category *NGS: QC and manipulation*, tool: *fqduplicate*
@@ -208,27 +208,28 @@ Select a tool in the tool list:
 ---
 ## Hands on - Get familiar with Galaxy tools (2/2)
 
-* To extract the duplicate reads, use: 
-    * *fqextract* - parameters setting
-     - **Type of input data **: single read
-     - **Original *fastq* dataset from your history**: *fastqsanger* output from *fqconvert*
-     - ** *Fastq* format **: *illumina1.8/Sanger*
-     - **Ignore pair information for the extraction (-p)**: True
-     - **Dataset from your history containing the list of read names to extract or exclude (-l)**: *fqduplicate* from *fastqsanger*
-     - **Extract or exclude reads in the list**: Extract listed reads
-     - RUN *fqextract*
+To extract the duplicate reads, use: 
+* *fqextract* - parameters setting
+    - **Type of input data **: single read
+    - **Original *fastq* dataset from your history**: *fastqsanger* output from *fqconvert*
+    - ** *Fastq* format **: *illumina1.8/Sanger*
+    - **Ignore pair information for the extraction (-p)**: True
+    - **Dataset from your history containing the list of read names to extract or exclude (-l)**: *fqduplicate* from *fastqsanger*
+    - **Extract or exclude reads in the list**: Extract listed reads
+    - RUN *fqextract*
+
 ---
 ## Hands on - Select a tool in the tool list (2/2)
 
 To extract the duplicate reads, use: 
-    * *fqextract* - parameters setting
-     - **Type of input data **: single read
-     - **Original *fastq* dataset from your history**: *fastqsanger* output from *fqconvert*
-     - ** *Fastq* format **: *illumina1.8/Sanger*
-     - **Ignore pair information for the extraction (-p)**: True
-     - **Dataset from your history containing the list of read names to extract or exclude (-l)**: *fqduplicate* from *fastqsanger*
-     - **Extract or exclude reads in the list**: Extract listed reads
-     - RUN *fqextract*
+* *fqextract* - parameters setting
+    - **Type of input data **: single read
+    - **Original *fastq* dataset from your history**: *fastqsanger* output from *fqconvert*
+    - ** *Fastq* format **: *illumina1.8/Sanger*
+    - **Ignore pair information for the extraction (-p)**: True
+    - **Dataset from your history containing the list of read names to extract or exclude (-l)**: *fqduplicate* from *fastqsanger*
+    - **Extract or exclude reads in the list**: Extract listed reads
+    - RUN *fqextract*
 
 To map the reads, use: 
 * Category NGS: Mapping: Parallel Map with BWA for Illumina
