@@ -1,0 +1,624 @@
+---
+layout: base_slides
+topic_name: "galaxy_initiation"
+tutorial_name: "galaxy_quick_formation"
+---
+layout: false
+background-image: url("../images/presentation.png")
+<div style="position: absolute; bottom: 36.5%; left: 51%; color: white" >
+<h1 style="position: relative; width:400px; height:70px">DBC</h1>
+ </div>
+<div style="position: absolute; bottom: 4%; left: 1%; color: white" >
+<h3 style="position: relative; width:400px; height:70px">From command line to web interface</h3>
+    <h4 style="font-size: 15px"><p>Fabien Mareuil, Rémi Planel</p>
+    </h4>
+</div>
+<img style="position: absolute; top: 2%; right: 2%" src="../images/LogoIP-CNRS-C3BI-NBV4small-e1460524231316.png" width="200">
+---
+name: plan
+
+## Plan
+
+* Quick introduction to Galaxy; a workflow managment software
+* Part 1 - **The web interface**:
+    * Homepage, tools, history, tool interface.
+    * Data Library pannel
+    * Workflow building panel
+* Part 2 - **Managing data**:
+    * Data import:
+        * data import using 'upload file'
+	    * data import using 'shared data'
+    * Job launching
+    * Data annotation
+* Part 3 - **Workflow construction**:
+    * NGS workflow
+    * Workflow annotation
+* Part 4 - **Galaxy and Reproducibility**
+    * Pages
+    * Sharing galaxy object
+
+---
+class: center, middle, inverse
+## PART 1
+## Quick introduction to Galaxy
+
+---
+layout: false
+[![Galaxy](../images/galaxy_logo_25percent_transparent.png)](https://galaxyproject.org/)
+
+- **Web-based** platform for computational biomedical research (analysis and data integration)
+  - Developed at Penn State, Johns Hopkins, OHSU and Cleveland Clinic with substantial outside contributions
+  - **Open source** under [Academic Free License](https://opensource.org/licenses/AFL-3.0)
+- More than 8,200 [citations](https://www.zotero.org/groups/1732893/galaxy)
+- More than 150 [public Galaxy resources](https://galaxyproject.org/use/)
+
+![Galaxy resources](../images/titleless-use-resource-banner.png)
+
+* Galaxy@Pasteur is available at https://galaxy.pasteur.fr :
+    * It is available for internal users since March 2013 and external users since October 2016
+    * It is linked to the Institut Pasteur storage bay, enabling big data upload
+    * We provide support for tools developement and tools installation in Galaxy
+
+
+---
+- **Accessibility**
+  - Users without programming experience can easily upload/retrieve data, run complex tools and workflows, and visualize data
+- **Reproducibility**
+  - Galaxy captures information so that any user can understand and repeat a complete computational analysis
+- **Transparency**
+  - Users can share or publish their analyses (histories, workflows, visualizations)
+  - Pages: online Methods for your paper
+
+???
+
+**accessible** **reproducible** **transparent** research means *sharing everything*.
+
+If the Galaxy framework makes everything as simple as possible, researchers are able to:
+- share their analyses
+- track all used tools and versions
+- check all parameters
+- justify each step in the analysis
+- publish the findings with all aforementioned information
+
+Pages: interactive, web-based documents that describe a complete analysis.
+---
+class: center, middle, inverse
+# User Interface
+
+???
+
+So now that we know what Galaxy and the Galaxy Project are all about, let's
+look at the Galaxy interface.
+
+---
+## Galaxy presentation: Homepage
+
+<img src="../images/galaxy_presentation.png" width="100%" height="100%" align="center" valign="center">
+
+Home page divided into 3 panels
+
+???
+
+Home page divided into 3 panels
+At the first home page loading you can see some information in the central panel with the cluster load or the last update
+
+---
+
+## Top menu
+
+![Top menu](../images/galaxy_interface_menu.png)
+
+Link            | Usage
+--              | --
+*Analyze Data*  | go back to the homepage
+*Workflow*      | access existing workflows or create new one using the editable diagrammatic pipeline
+*Visualize*     | create new visualisations and launch Interactive Environments
+*Shared data*   | access data libraries, histories, workflows, visualizations and pages shared with you
+*Help*          | links to Galaxy Help Forum (Q&A), Galaxy Community Hub (Wiki), and Interactive Tours
+*User*          | your preferences and saved histories, datasets, pages and visualizations
+---
+## Tools
+
+![Tool interface](../images/101_11.png)
+
+- The tool search helps in finding a tool in a crowded toolbox
+
+---
+layout: false
+
+## Tool interface
+
+<img src="../images/galaxy_tool.png" width="50%" style="display:block;margin-left:auto;margin-right:auto">
+
+- A tool form contains:
+  - input datasets and parameters
+  - help, citations, metadata
+  - an `Execute` button to start a job, which will add some output datasets to the history
+- New tool versions can be installed without removing old ones to ensure reproducibility
+
+???
+
+The tool form is generated from a simple XML file describing:
+- the input datasets and their datatypes
+- the tool parameters (numerical, text, boolean, selections, colour)
+- the dependencies required to run the tool
+- how to generate a command to execute the tool with the specified inputs and parameters
+- the output datasets the tool should produce and their datatypes
+- tests
+- help, citations
+- various metadata (e.g. the tool version)
+
+Tools can be viewed as tiny LEGO pieces: each one solves a specific problem, and they can be combined together to build complex analysis pipelines.
+
+---
+## Hands on: It's your turn
+
+* **Log in to Galaxy**:
+    * Open your favorite browser (Chrome, Safari or Firefox as your browser)
+    * Browse to https://galaxy.pasteur.fr
+    * if you do not have an account, register (menu User/Register)
+    * email address (you will receive an email to activate your account):
+        * use your pasteur address
+    * password: as you want
+    * public name: as you want
+
+---
+## Hands on: It's your turn
+
+* **Exploration of the "Analyse Data" tab**:
+    * Tools
+        * search your prefered tools and look for its different options
+    * Central panel
+        * load a tool (by clicking on it) and look the central panel
+    * History
+        * use the wheel icon in the history panel to create a new history and rename it
+<img src="../images/rename_history.png" width="25%" style="display:block;margin-left:auto;margin-right:auto">
+
+---
+class: center, middle, inverse
+## PART 2
+## Managing your data with Galaxy
+
+---
+## History
+
+- Location of all analyses <img style="float: right;" alt="History" src="../images/history.png" />
+  - collects all datasets produced by tools
+  - collects all operations performed on the data
+
+- For each dataset (the heart of Galaxy’s reproducibility), the history tracks
+  - name, format, size, creation time, datatype-specific metadata
+  - tool id, version, inputs, parameters
+  - standard output (`stdout`) and error (`stderr`)
+  - state (<span style="background-color: grey">waiting</span>, <span style="background-color: yellow">running</span>, <span style="background-color: green">success</span>, <span style="background-color: red">failed</span>)
+  - hidden, deleted, purged
+
+???
+
+- We say *datasets* to refer to files as well as databases
+- Purged means permanently deleted
+
+---
+
+## Multiple histories
+
+- You can have as many histories as you want
+  - each history should correspond to a **different analysis**
+  - and should have a meaningful **name**
+
+<img src="../images/galaxy_interface_multiple_histories.png" width="100%" style="display:block;margin-left:auto;margin-right:auto">
+
+???
+
+- Give it a good name so you can find it later. I have around a hundred histories and after a month I can't remember what I was doing in some, so a good name is important.
+- You can drag and drop datasets between histories
+
+---
+
+## History options menu
+ <div style="display:table;clear:both">
+  <div style="float:left;width:50%">
+      <p><center>History behavior is controlled by the <i>History options</i> (gear icon)</center></p>
+      <p><img src="../images/galaxy_interface_history_long_menu.png" style="display:block;margin-left:auto;margin-right:auto"></p>
+  </div>
+  <div style="float:left;width:50%">
+      <img src="../images/galaxy_interface_history_menu.png" width="50%" style="display:block;margin-left:auto;margin-right:auto">
+      <p>
+      <ul>
+      <li> <i>Create New</i> history will <b>not</b> make your current history disappear</li>
+      <li> To see all of your histories, use the history switcher</li>
+      </ul>
+      </p>
+      <img src="../images/galaxy_interface_history_switch.png" width="50%" style="display:block;margin-left:auto;margin-right:auto">
+      <ul>
+      <li><i>Copy Datasets</i> from one history to another and save disk space for your quota</li>
+      </ul>
+  </div>
+</div>
+
+???
+
+- Copying datasets between histories does not affect your quota, only a single copy of the file is stored on disk because datasets are never modified after creation.
+
+
+---
+
+## Importing data
+
+- Copy/paste from a file
+- Upload data from a local computer
+- Upload data from internet using URL
+- Upload data from online databases: UCSC, BioMart, ENCODE, modENCODE, Flymine etc.
+- Import from Shared Data (libraries, histories, pages)
+- Upload data from FTP
+
+See https://training.galaxyproject.org/training-material/topics/galaxy-data-manipulation/tutorials/get-data/slides.html
+
+???
+
+So now you know about the tools to manipulate data and the history where you
+can see your data, your inputs and outputs. Let's discuss how to get data into
+Galaxy
+
+---
+
+layout: false
+## Upload a data
+<img src="../images/upload.png" width="100%" height="100%" align="center" valign="center">
+* Each data has a **FORMAT** (datatype) and **datatypes** have a central role for Galaxy
+* Tools only accept input datasets with the appropriate datatypes
+
+
+---
+layout: false
+## Upload a data
+<img src="../images/upload_zoom.png" width="50%" style="display:block;margin-left:auto;margin-right:auto">
+* When uploading a dataset, its datatype can be either:
+    * automatically detected
+    * assigned by user
+* Dataset produced by a tool: datatype assigned by the tool
+* To change the datatype of a dataset:
+
+  * .left-column5[<img src="../images/pencil.png" width="18"/>] .right-column95[*Edit Attributes* and *Datatype*]
+  * .left-column5[<img src="../images/pencil.png" width="18"/>] .right-column95[*Edit Attributes* and *Convert Formats*]
+
+---
+## Hands on: Upload a data
+
+* Go to Galaxy
+* At the top of the Tools panel (on the left), click Upload button
+<img src="../images/upload-data.png" width="30%" style="display:block;margin-left:auto;margin-right:auto">
+* This brings up a box:
+<img src="../images/upload-box.png" width="50%" style="display:block;margin-left:auto;margin-right:auto">
+* Click Paste/Fetch data
+* Paste in the address of a file:
+     ```
+     https://zenodo.org/record/582600/files/mutant_R1.fastq
+     ```
+* Click **Start** and **Close**
+
+---
+## Hands on: Upload a data
+
+Your uploaded file is now in your current history. When the file has uploaded to Galaxy, it will turn green.
+What is this file?
+* Click on the eye icon next to the file name, to look at the file content
+<img src="../images/eye-icon.png" width="20%" style="display:block;margin-left:auto;margin-right:auto">
+
+The contents of the file will be displayed in the central Galaxy panel.
+
+This file contains DNA sequencing reads from a bacteria, in FASTQ format:
+<img src="../images/fastq.png" width="60%" style="display:block;margin-left:auto;margin-right:auto">
+
+---
+class: center, middle, inverse
+
+## Use a tool
+
+???
+
+So now you have a data in your history it's time to use a tool
+
+---
+## Hands on - Get familiar with Galaxy tool
+
+Let’s look at the quality of the reads in this file.
+
+* Type **FastQC** in the tools panel search box (top)
+* Click on the **FastQC**
+  The tool will be displayed in the central Galaxy panel.
+* Select the following parameters:
+    * *"Short read data from your current history"*: the FASTQ file that we uploaded
+    * No change in the other parameters
+* Click **Execute**
+
+This tool will run and the two output files will appear at the top of your history panel.
+
+???
+
+You can see that the lengh of the reads in the input FASTQ file is 150 bp
+And the qualiter score is higher ins the center of these reads
+
+---
+## Hands on - Get familiar with Galaxy tool
+
+* Click on the eye icon next to the tow output files.
+  The information is displayed in the central panel
+<img src="../images/fastqc_result.png" width="60%" style="display:block;margin-left:auto;margin-right:auto">
+
+This tool has summarised information about all of the reads in our FASTQ file.
+
+---
+## Hands on - Get familiar with Galaxy another tool
+* Type **Filter by quality**
+* Click on the tool **Filter by quality**
+* Set the following parameters:
+    * *"Library to filter"*: the input FASTQ file
+    * *"Quality cut-off value"*: 35
+    * *"Percent of bases in sequence that must have quality equal to / higher than cut-off value"*: 80
+* Click **Execute**
+---
+
+## Hands on - Get familiar with Galaxy another tool
+* Click on the output file name in the History panel
+  This expands the information about the file.
+<img src="../images/filter-fastq1.png" width="60%" style="display:block;margin-left:auto;margin-right:auto">
+
+???
+
+You can see that 1786 low-quality reads were discarded
+
+---
+## Hands on - Re-run that tool with changed settings
+* Click on the refresh icon (**Run this job again**) for the output dataset of **Filter by quality**
+
+  <img src="../images/rerun.png" width="20%" style="display:block;margin-left:auto;margin-right:auto">
+
+  This brings up the tool interface in the central panel with the parameters set to the values used previously to generate this dataset.
+* Change the settings to something even stricter
+  For example, you might decide you want 80 percent of bases to have a quality of 36 or higher, instead of 35.
+* Click **Execute**
+* View the results: Click on the output file name to expand the information.
+
+---
+## Hands on - Create a new history
+* Create a new history
+  * Click on the *wheel* icon (**History options**) on the top of the history panel
+  * Select the option **Create New** from the menu
+<img src="../images/create_history.png" width="30%" style="display:block;margin-left:auto;margin-right:auto">
+* Rename your history, e.g. *"Next-analysis"*
+  * Click on **Unnamed history** (or the current name of the history) (**Click to rename history**) at the top of your history panel
+  * Type the new name
+  * Press Enter
+<img src="../images/rename_history.png" width="30%" style="display:block;margin-left:auto;margin-right:auto">
+
+---
+## Hands on - Look at all your histories
+* Click on the **View all histories** (*columns* icon) at the top right of your history
+
+<img src="../images/galaxy_interface_history_switch.png" width="30%" style="display:block;margin-left:auto;margin-right:auto">
+
+A new page will appear with all your histories displayed here.
+
+---
+## Hands on - Look at all your histories
+* Copy a dataset into your new history
+    * Click on the FASTQ file in “my-analysis” history
+    * Drag it into the “Next-analysis” history
+
+<img src="../images/copy-dataset.gif"  width="80%" style="display:block;margin-left:auto;margin-right:auto">
+
+* This makes a copy of the dataset in the new history (without actually using additional disk space).
+* Click on **Analyze Data** in the top panel to go back to your analysis window
+
+
+???
+
+You can swith between your histories by clicking on the switch button
+---
+## Hands on - Delete your old result
+* Click on the **x** icon of a data in you history to delete it
+
+    * The file is not really deleted from the storage system
+    * You can unhide the deleted data by clicking on *deleted* just below the history name
+
+* Click on the *wheel* icon (**History options**) on the top of the history panel
+
+* Select the option **Purge Deleted Datasets**
+
+    * Deleted data have been purged
+
+---
+## Data Annotation / Tag
+
+* Add tag or annotation to datasets or to histories
+* Possibility to search the tag within several histories
+
+<img src="../images/annotation.png" width="30%" style="display:block;margin-left:auto;margin-right:auto">
+
+???
+
+This can help you to find easier your data in all your histories
+
+---
+
+class: center, middle, inverse
+## PART 3
+## Workflow Construction
+
+---
+layout: false
+## Workflow construction
+
+* Create an empty workflow
+
+<img src="../images/workflow_construction.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Workflow construction
+
+<img src="../images/workflow_construction_2.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Workflow construction
+
+<img src="../images/workflow_construction_3.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Workflow annotation
+
+* Add tag or annotation for a whole workflow 
+* But also for each step of the workflow (description, or keyword to easily retrieve the concerned datasets
+
+<img src="../images/workflow_annotation.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Run your workflow
+
+<img src="../images/workflow_run.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Hands On: Create a workflow and run it
+* Create a workflow
+
+    * Create workflow, give it a name
+    * Search, link and set parameters for each tool
+    * Click on the wheel, save, then RUN the workflow
+
+---
+## Hands On: Create a workflow and run it
+* Create a workflow
+
+    * Create workflow, give it a name
+    * Search, link and set parameters for each tool
+    * Click on the wheel, save, then RUN the workflow
+* To run the workflow several times
+
+    * Add the Input dataset box of the category Workflow control/ Inputs
+    * Save then run
+    * Click on the little file logo near the Input Dataset of the Step 1
+    * Add the 2 input files and RUN.
+
+---
+## Hands On: Create a workflow and run it
+* Create a workflow
+
+    * Create workflow, give it a name
+    * Search, link and set parameters for each tool
+    * Click on the wheel, save, then RUN the workflow
+* To run the workflow several times
+
+    * Add the Input dataset box of the category Workflow control/ Inputs
+    * Save then run
+    * Click on the little file logo near the Input Dataset of the Step 1
+    * Add the 2 input files and RUN.
+* To finish, delete data
+
+    * Click on the cross of each file
+    * Click on the history wheel and on include deleted datasets
+        * Data are not really deleted
+    * Click on the wheel and select purge deleted datasets or on delete permanently to delete the complete history or delete each data individually
+
+
+
+---
+class: center, middle, inverse
+## PART 4
+## Galaxy & Reproductibility
+
+---
+layout: false
+
+## Pages
+<img src="../images/pages_1.png" width="100%" height="100%" align="center" valign="center">
+
+* Building Pages
+
+<img src="../images/pages_2.png" width="100%" height="100%" align="center" valign="center">
+<img src="../images/pages_3.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Pages
+
+* Pages example:
+    * https://galaxy.pasteur.fr/u/fmareuil/p/formation-galaxy
+<img src="../images/pages_4.png" width="100%" height="100%" align="center" valign="center">
+    * https://galaxy.pasteur.fr/u/dcorreia/p/ngphylogenyfr-oneclick-workflows
+<img src="../images/pages_damien.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Sharing Data with Galaxy
+
+* Click on the wheel menu and select *Share or Publish*
+
+<img src="../images/sharing_data.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Sharing Workflow with Galaxy
+
+<img src="../images/sharing_workflow.png" width="100%" height="100%" align="center" valign="center">
+
+---
+class: center, middle, inverse
+## PART 5
+## To go a little further
+
+---
+layout: false
+## Toolshed
+
+* Pasteur users can also access to a pasteur graphical tool repositories: 
+    * https://toolshed.pasteur.fr/
+* In addition to official repositories
+    * http://toolshed.g2.bx.psu.edu/ et http://testtoolshed.g2.bx.psu.edu
+
+<img src="../images/toolshed.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## Writing XMLs
+
+* 4 parts:
+
+    * Description, ID and requirements
+    * Command line
+    * Arguments and command line options descriptions
+    * Documentation and functional tests
+
+* https://docs.galaxyproject.org/en/master/dev/schema.html
+
+---
+## Writing XMLs
+* Once the software is installed on the cluster; the XML is to be put in a toolshed repository and at the end, contact us to install it in the Galaxy instance
+
+<img src="../images/xml.png" width="100%" height="100%" align="center" valign="center">
+
+---
+## From Galaxy to the command line:
+   * Galaxy provides an API to allow scripting and administration of all your tasks
+   
+   	* https://docs.galaxyproject.org/en/master/api/quickstart.html
+	
+   * Bioblend is a python library for interacting with Galaxy's API.
+   
+       * https://bioblend.readthedocs.io/en/latest/
+       * https://c3bi-pasteur-fr.github.io/Galaxy_training_material/pasteur_bioblend/slides/bioblend_api#1
+
+---
+##.center[Thank you for your attention]
+
+* Contact :
+    * https://c3bi.pasteur.fr/ask/?ask=Ask+Short+Question  
+    *(this address may change but it will appear on the Galaxy Page)*
+
+* Useful Addresses:
+    Galaxy at Institut Pasteur: 
+    * https://galaxy.pasteur.fr/
+    * https://toolshed.pasteur.fr/ 
+
+* Use Galaxy :
+    * https://galaxy.pasteur.fr/tours
+    * http://wiki.galaxyproject.org/Learn
+    * https://vimeo.com/galaxyproject/videos
+
+* Write Galaxy xmls:
+    * https://docs.galaxyproject.org/en/master/dev/schema.html
